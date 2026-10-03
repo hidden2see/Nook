@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Nook the password generator that loves privacy"
+    />
+    <title>Nook</title>
+
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <img src="./favicon.svg" alt="Logo" id="logo" height="80" />
+      <span logo="name">Nook</span>
+    </header>
+    <main>
+      <div>
+        <h1>Made here. Kept nowhere.</h1>
+        <p>
+          A password generator with no account, no ads and no tracking. Pick a
+          length, copy the result.
+        </p>
+      </div>
+      <div id="card">
+        <p>2Nk2#1ld</p>
+        <div>
+          <div id="progress-bar"></div>
+          <p>Weak</p>
+          <p>40 bits of entropy</p>
+        </div>
+        <div>
+          <button>Copy password</button>
+          <button>New</button>
+        </div>
+        <div>
+          <label for="length">Length</label>
+          <input type="range" min="8" max="64" step="1" id="length"/>
+          <span id="length-display">8</span>
+        </div>
+        <div>
+          <input type="checkbox" id="lowercase" checked/>
+          <label for="lowercase">Lowercase</label>
+
+          <input type="checkbox" id="uppercase" checked/>
+          <label for="uppercase">Uppercase</label>
+
+          <input type="checkbox" id="numbers" checked/>
+          <label for="numbers">Numbers</label>
+
+          <input type="checkbox" id="symbols" checked/>
+          <label for="symbols">Symbols</label>
+
+          <input type="checkbox" id="look-alikes" />
+          <label for="look-alikes">Skip look-alikes (l, I, O, 0)</label>
+        </div>
+      </div>
+      <div>
+        <p>
+          <strong>Your password never leaves this page.</strong> It's made in
+          your browser with the system's secure random generator. Nothing is
+          sent, saved or tracked, and there are no cookies.
+        </p>
+
+        <h2>How long should a password be?</h2>
+        <p>
+          For important accounts such as email and banking, use at least 16
+          characters. Length matters more than anything else: each extra
+          character multiplies the number of guesses an attacker needs. Use a
+          different password for every account, and turn on two-factor sign-in
+          where you can.
+        </p>
+
+        <h2>How Nook makes passwords</h2>
+        <p>
+          Every character is picked independently using your browser's secure
+          random number generator. If you select several character types, the
+          password always includes at least one of each. The page runs entirely
+          on your device, with no account, no cookies and no ads.
+        </p>
+
+        <h2>What the strength bar shows</h2>
+        <p>
+          The bar and the number under it estimate entropy in bits, which
+          measures how unpredictable the password is. Under 50 bits is weak, 50
+          to 69 is fair, 70 to 99 is strong, and 100 or more is very strong. The
+          estimate only holds for passwords generated at random like these, not
+          for ones you invent yourself.
+        </p>
+
+        <h2>Where to keep them</h2>
+        <p>
+          A random password is hard to remember, so store it in a password
+          manager or another safe place instead of reusing a simpler one.
+        </p>
+      </div>
+    </main>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
