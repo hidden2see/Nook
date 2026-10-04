@@ -1,0 +1,535 @@
+@font-face {
+    font-family: "Fraunces";
+    src: url("./fonts/Fraunces-VariableFont_SOFT,WONK,opsz,wght.ttf") format("truetype");
+    font-weight: 100 900;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "JetBrainsMono";
+    src: url("./fonts/JetBrainsMono-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 800;
+    font-display: swap;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+h1, h2, p {
+    margin: 0;
+}
+
+button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+}
+
+:root {
+    --background-color: #0E0E0D;
+    --card-background-color: #151513;
+    --border-color: #2A2925;
+    --main-text: #F5F1E8;
+    --secondray-text: #B9B5AA;
+    --small-text: #8E8A80;
+    --theme-color: #C98A3E;
+    --symbols-color: #E3C79A;
+    --button-color: #F5F1E8;
+    --button-text-color: #0E0E0D;
+    --weak-password-bar: #D9604C;
+    --fair-password-bar: #C98A3E;
+    --strong-password-bar: #A9B865;
+    --vstrong-password-bar: #6FBF8E;
+
+    --main-font: "Fraunces", "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --secondray-font: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    --password-font: "JetBrainsMono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+
+html {
+    background: var(--background-color);
+    color-scheme: dark;
+}
+
+body {
+    margin: 0;
+    background-color: var(--background-color);
+    color: var(--main-text);
+    font-family: var(--secondray-font);
+}
+
+header, main, footer {
+    width: min(100%, 680px);
+    margin-inline: auto;
+    padding-inline: 20px;
+}
+
+header {
+    display: flex;
+    padding-top: 28px;
+    padding-bottom: 56px;
+    align-items: center;
+    gap: 12px;
+    align-self: stretch;
+}
+
+#logo {
+    width: 40px;
+    height: 40px;
+}
+
+header span {
+    color: var(--button-color);
+    font-family: var(--main-font);
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+#hero {
+    display: flex;
+    padding-bottom: 36px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    align-self: stretch;
+}
+
+#hero h1 {
+    align-self: stretch;
+    color: var(--main-text);
+    font-family: var(--main-font);
+    font-size: clamp(34px, 7vw, 54px);
+    font-style: normal;
+    font-weight: 600;
+    line-height: 105%;
+}
+
+#hero p {
+    align-self: stretch;
+    color: var(--small-text);
+    font-family: var(--secondray-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+#card {
+    display: flex;
+    padding: 26px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-background-color);
+}
+
+#password-row {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#password-row span {
+    align-self: stretch;
+    color: var(--main-text);
+    font-family: var(--password-font);
+    font-size: clamp(18px, 4.6vw, 24px);
+    overflow-wrap: anywhere;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+}
+
+#strength-row {
+    display: flex;
+    padding-top: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#strength-tracker {
+    display: flex;
+    height: 6px;
+    overflow: hidden;
+    align-items: center;
+    align-self: stretch;
+    border-radius: 3px;
+    background-color: #2A2925;
+}
+
+#strength-bar {
+    display: block;
+    width: 85%;
+    height: 6px;
+    background-color: #6FBF8E;
+}
+
+#info-row {
+    display: flex;
+    padding-top: 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+#strength-info {
+    color: #6FBF8E;
+    font-family: var(--secondray-font);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#strength-bits {
+    color: #8E8A80;
+    font-family: var(--secondray-font);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#buttons-row {
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    align-self: stretch;
+}
+
+#button-copy {
+    display: flex;
+    padding: 13px 22px;
+    justify-content: center;
+    align-items: center;
+    flex: 1 0 0;
+    border-radius: 999px;
+    background-color: var(--button-color);
+}
+
+#button-copy span {
+    color: var(--button-text-color);
+    font-family: var(--secondray-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#button-new {
+    display: flex;
+    padding: 13px 22px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+}
+
+#button-new span {
+    color: #F5F1E8;
+    font-family: var(--secondray-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#length-row {
+    display: flex;
+    padding-top: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#length-selector {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+}
+
+#length-selector label {
+    color: var(--main-text);
+    font-family: var(--password-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#length-chooser {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: 1;
+    min-width: 0;
+    height: 18px;
+    margin: 0;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Chrome, Safari, Edge. JS sets --fill (0-100%) */
+#length-chooser::-webkit-slider-runnable-track {
+    height: 18px;
+    border-radius: 2px;
+    background: linear-gradient(to right, var(--theme-color) 0 var(--fill, 21%), var(--border-color) var(--fill, 21%) 100%) center / 100% 4px no-repeat;
+}
+
+#length-chooser::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    margin-top: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--theme-color);
+}
+
+/* Firefox (separate rules) */
+#length-chooser::-moz-range-track {
+    height: 4px;
+    border-radius: 2px;
+    background: var(--border-color);
+}
+
+#length-chooser::-moz-range-progress {
+    height: 4px;
+    border-radius: 2px;
+    background: var(--theme-color);
+}
+
+#length-chooser::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--theme-color);
+}
+
+#length-chooser:focus-visible {
+    outline: 2px solid var(--main-text);
+    outline-offset: 4px;
+}
+
+#password-length {
+    color: #F5F1E8;
+    font-family: var(--password-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+#settings-row {
+    display: flex;
+    padding-top: 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    align-self: stretch;
+}
+
+.options-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    align-self: stretch;
+}
+
+.option {
+    display: flex;
+    padding: 8px 0;
+    align-items: center;
+    gap: 10px;
+    flex: 1 0 0;
+}
+
+.personlization {
+    -webkit-appearance: none;
+    appearance: none;
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    margin: 0;
+    border: 1.5px solid var(--small-text);
+    border-radius: 4px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.personlization:checked {
+    background: var(--theme-color);
+    border-color: var(--theme-color);
+}
+
+.personlization::after {
+    content: "";
+    width: 4px;
+    height: 8px;
+    border: solid var(--button-text-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) translate(-1px, -1px);
+    opacity: 0;
+}
+
+.personlization:checked::after {
+    opacity: 1;
+}
+
+.personlization:focus-visible {
+    outline: 2px solid var(--main-text);
+    outline-offset: 3px;
+}
+
+.option label {
+    cursor: pointer;
+    color: var(--main-text);
+    font-family: var(--secondray-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+#privacy {
+    display: flex;
+    padding-top: 28px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+#privacy p {
+    align-self: stretch;
+    color: var(--small-text);
+    font-family: var(--secondray-font);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+#privacy p span {
+    color: var(--main-text);
+}
+
+#about {
+    display: flex;
+    padding-top: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.about-section {
+    display: flex;
+    padding-bottom: 24px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.about-section h2 {
+    align-self: stretch;
+    color: var(--main-text);
+    font-family: var(--main-font);
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.about-section p {
+    align-self: stretch;
+    color: var(--secondray-text);
+    font-family: var(--secondray-font);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 160%;
+}
+
+footer {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 56px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+footer span {
+    align-self: stretch;
+    color: var(--small-text);
+    font-family: var(--secondray-font);
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#button-new:hover {
+    border-color: var(--small-text);
+    opacity: 1;
+}
+
+button:focus-visible {
+    outline: 2px solid var(--main-text);
+    outline-offset: 3px;
+}
+
+@media (max-width: 480px) {
+    header {
+        padding-bottom: 40px;
+    }
+
+    #card {
+        padding: 20px;
+    }
+
+    .options-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+    }
+}
