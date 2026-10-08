@@ -12,8 +12,8 @@ const look_alikes = document.getElementById("look-alikes");
 const strength_bar = document.getElementById("strength-bar");
 const strength_display = document.getElementById("strength-info");
 const bits_display = document.getElementById("strength-bits");
-const copy_button = document.getElementById("copy-button");
-const new_button = document.getElementById("new-button");
+const copy_button = document.getElementById("button-copy");
+const new_button = document.getElementById("button-new");
 
 function randomChar() {
   let item = Math.floor(Math.random() * 94);
@@ -66,6 +66,7 @@ function generateNewPassword() {
   let symbols_value = symbols.checked;
   let look_alikes_value = look_alikes.checked;
 
+  copy_button.querySelector("span").textContent = "Copy password"
   if (
     lowercase_value == false &&
     uppercase_value == false &&
@@ -133,5 +134,5 @@ look_alikes.addEventListener("change", generateNewPassword);
 new_button.addEventListener("click", generateNewPassword);
 copy_button.addEventListener("click", function () {
   navigator.clipboard.writeText(password_output.textContent);
-  copy_button.textContent = "Copied!";
+  copy_button.querySelector("span").textContent = "Copied!";
 });
