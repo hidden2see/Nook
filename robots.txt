@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://nook.us.ci/sitemap.xml
+Sitemap: https://nook-password-generator.pages.dev/
