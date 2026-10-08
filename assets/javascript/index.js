@@ -130,3 +130,8 @@ uppercase.addEventListener("change", generateNewPassword);
 numbers.addEventListener("change", generateNewPassword);
 symbols.addEventListener("change", generateNewPassword);
 look_alikes.addEventListener("change", generateNewPassword);
+new_button.addEventListener("click", generateNewPassword);
+copy_button.addEventListener("click", function () {
+  navigator.clipboard.writeText(password_output.textContent);
+  copy_button.textContent = "Copied!";
+});
