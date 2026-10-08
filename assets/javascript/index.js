@@ -12,6 +12,8 @@ const look_alikes = document.getElementById("look-alikes");
 const strength_bar = document.getElementById("strength-bar");
 const strength_display = document.getElementById("strength-info");
 const bits_display = document.getElementById("strength-bits");
+const copy_button = document.getElementById("copy-button");
+const new_button = document.getElementById("new-button");
 
 function randomChar() {
   let item = Math.floor(Math.random() * 94);
@@ -122,6 +124,7 @@ length.addEventListener("input", function () {
   length.style.setProperty("--fill", pct + "%");
 });
 
+generateNewPassword();
 lowercase.addEventListener("change", generateNewPassword);
 uppercase.addEventListener("change", generateNewPassword);
 numbers.addEventListener("change", generateNewPassword);
